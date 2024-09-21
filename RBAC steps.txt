@@ -1,0 +1,56 @@
+kubectl create namespace dev
+
+openssl genrsa -out emp.key 2048
+
+openssl req -new -key emp.key -out emp.csr -subj="/CN=emp/O=dev"
+
+openssl x509 -req -in emp.csr -CA ~/.minikube/ca.crt -CAkey ~/.minikube/ca.key -CAcreateserial -out emp.crt -days 100
+
+kubectl config set-context dev-ctx --user emp --cluster minikube --namespace=dev
+
+kubectl config set-credentials emp --client-certificate emp.crt --client-key emp.key
+
+(create role.yaml and role-binding.yaml files /home/labuser location)
+
+role.yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: dev
+  name: emp-role
+rules:
+- apiGroups: [“”] # “” indicates the core API group
+  resources: [“pods”, "deployment"]
+  verbs: [“get”, “list”,"create"]
+
+role-binding.yaml
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: emp-bind
+  namespace: dev
+subjects:
+- kind: User
+  name: emp # Name is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role #this must be Role or ClusterRole
+  name: emo-role # must match the name of the Role
+  apiGroup: rbac.authorization.k8s.io
+
+kubectl apply -f role.yaml
+
+kubectl apply -f role-binding.yaml
+
+kubectl run nginx --image nginx -n dev 
+
+to ensure the deployament use the command (second last command in problem statement) in the problem statement (note:STATUS should be in RUNNING)
+
+kubectl get pods (note:STATUS should be in RUNNING)
+
+kubectl get pvc (note:STATUS should be in BOUND)
+
+
+
