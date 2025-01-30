@@ -1,4 +1,4 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 # Function to clear all columns except "ServerName" and clear rows
 # Function to clear DataGridView
@@ -41,7 +41,6 @@ $textBoxServers = New-Object System.Windows.Forms.TextBox
 $textBoxServers.Location = New-Object System.Drawing.Point(20,90)
 $textBoxServers.Size = New-Object System.Drawing.Size(180, 320)
 $textBoxServers.Anchor = "Left","Top","Bottom"
-$textBoxServers.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $textBoxServers.Multiline = $true
 $textBoxServers.ScrollBars = "Vertical"
 $textBoxServers.Font = New-Object System.Drawing.Font("Microsoft Sans Serif", 9, [System.Drawing.FontStyle]::Regular)
@@ -82,25 +81,25 @@ $columnDriveName = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
 $columnDriveName.HeaderText = "Drive Name"
 $columnDriveName.Name = "DriveName"
 $columnDriveName.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
-$dataGridView.Columns.Add($columnDriveName)
+    $dataGridView.Columns.Add($columnDriveName)
 
-$columnTotalSpace = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
-$columnTotalSpace.HeaderText = "Total Space (GB)"
-$columnTotalSpace.Name = "TotalSpace"
-$columnTotalSpace.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
-$dataGridView.Columns.Add($columnTotalSpace)
+    $columnTotalSpace = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
+    $columnTotalSpace.HeaderText = "Total Space (GB)"
+    $columnTotalSpace.Name = "TotalSpace"
+    $columnTotalSpace.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
+    $dataGridView.Columns.Add($columnTotalSpace)
 
-$columnFreeSpace = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
-$columnFreeSpace.HeaderText = "Free Space (GB)"
-$columnFreeSpace.Name = "FreeSpace"
-$columnFreeSpace.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
-$dataGridView.Columns.Add($columnFreeSpace)
+    $columnFreeSpace = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
+    $columnFreeSpace.HeaderText = "Free Space (GB)"
+    $columnFreeSpace.Name = "FreeSpace"
+    $columnFreeSpace.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
+    $dataGridView.Columns.Add($columnFreeSpace)
 
-$columnFreeSpacePercent = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
-$columnFreeSpacePercent.HeaderText = "Free Space (%)"
-$columnFreeSpacePercent.Name = "FreeSpacePercent"
-$columnFreeSpacePercent.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
-$dataGridView.Columns.Add($columnFreeSpacePercent)    
+    $columnFreeSpacePercent = New-Object System.Windows.Forms.DataGridViewTextBoxColumn
+    $columnFreeSpacePercent.HeaderText = "Free Space (%)"
+    $columnFreeSpacePercent.Name = "FreeSpacePercent"
+    $columnFreeSpacePercent.AutoSizeMode = [System.Windows.Forms.DataGridViewAutoSizeColumnMode]::Fill
+    $dataGridView.Columns.Add($columnFreeSpacePercent)    
 
 # Add CHECK button
 $button1 = New-Object System.Windows.Forms.Button

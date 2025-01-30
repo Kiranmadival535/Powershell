@@ -1,4 +1,4 @@
-﻿# Load necessary assemblies
+# Load necessary assemblies
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 # Function to save credentials to a file
@@ -243,7 +243,6 @@ $serverTextbox.Size = New-Object System.Drawing.Size(180, 225)
 $serverTextbox.Anchor = "Left","Top","Bottom"
 $serverTextbox.Multiline = $true
 $serverTextbox.ScrollBars = "Vertical"
-$serverTextbox.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $serverTextbox.Font = New-Object System.Drawing.Font("Arial", 10, [System.Drawing.FontStyle]::Regular)
 $form.Controls.Add($serverTextbox)
 
@@ -604,7 +603,7 @@ $helpSubMenu.Text = "About"
 # Add event handler for the "About" submenu click event
 $helpSubMenu.Add_Click({
     # Display a message box with the note or additional information
-    [System.Windows.Forms.MessageBox]::Show("Kiran created this tool. Check user access information and add or removeÂ access to the servers.", "About", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
+    [System.Windows.Forms.MessageBox]::Show("Kiran created this tool. Check user access information and add or remove access to the servers.", "About", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
 })
 
 # Add the "About" submenu to the "Help" menu

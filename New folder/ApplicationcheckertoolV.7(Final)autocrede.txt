@@ -1,15 +1,4 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
-Add-Type -AssemblyName System.Drawing
-function Save-Credentials {
-    param(
-        [System.Management.Automation.PSCredential]$Credential,
-        [string]$FilePath
-    )
-    $Credential | Export-Clixml -Path $FilePath
-}
-$credentialFilePath = "C:\Temp\credential.xml"  # Change this path as needed
-
-
+}12\C+BcfZ8ztnG
 
 # Function to check if specified applications are installed on servers
 function Check-Applications {
