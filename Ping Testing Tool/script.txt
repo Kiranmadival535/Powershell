@@ -1,0 +1,1 @@
+ps2exe "C:\Users\kiran\OneDrive\Desktop\Interview Prep\New folder\pingcheckertoolV.9(Final).ps1" "C:\Users\kiran\OneDrive\Desktop\Interview Prep\New folder\outputfile.exe" -noConsole -noOutput -noError
